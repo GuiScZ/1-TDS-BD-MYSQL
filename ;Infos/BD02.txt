@@ -1,0 +1,122 @@
+CREATE DATABASE-CRIAR BANCO DE DADOS
+Cria um banco de dados, índice, visualização, tabela ou procedimento.
+
+Exemplo de CREATE DB:
+
+CREATE DATABASE testDB;
+
+DROP DATABASE - DELETA BANCO DE DADOS
+Exclui uma coluna, restrição, banco de dados, índice, tabela ou exibição
+
+Exemplo de DROP DB:
+
+DROP DATABASE testDB;
+
+BACKUP DATABASE-CÓPIA DE SEGURANÇA DO BANCO DE DADOS
+Cria um backup de um banco de dados existente.
+
+Exemplo de BACKUP DB:
+
+BACKUP DATABASE testDB
+TO DISK = 'D:\backups\testDB.bak';
+
+CREATE TABLE-CRIAR TABELA
+Cria uma nova tabela no banco de dados
+
+Exemplo de CREATE TABLE:
+
+CREATE TABLE Persons (
+    PersonID int,
+    LastName varchar(255),
+    FirstName varchar(255),
+    Address varchar(255),
+    City varchar(255)
+);
+
+DROP TABLE-DELETAR TABELA
+Exclui uma tabela existente no banco de dados.
+
+Exemplo de DROP TABLE:
+
+DROP TABLE Shippers;
+
+ALTER TABLE-ALTERAR TABELA
+Adiciona, exclui ou modifica colunas em uma tabela
+
+Exemplo de ALTER TABLE(DROP):
+
+ALTER TABLE Customers
+DROP COLUMN Email;
+
+Exemplo de ALTER TABLE(ALTER/MODIFY):
+
+ALTER TABLE table_name
+ALTER COLUMN column_name datatype;
+
+Exemplo de ALTER TABLE(ADD):
+
+ALTER TABLE Persons
+ADD DateOfBirth date;
+
+CONSTRAINTS-Restrições
+Adiciona ou exclui uma restrição
+
+Exemplo de CONSTRAINTS:
+
+CREATE TABLE table_name (
+    column1 datatype constraint,
+    column2 datatype constraint,
+    column3 datatype constraint
+);
+
+NOT NULL-NÃO NULO
+Uma restrição que impõe uma coluna a não aceitar valores NULOS.
+
+Exemplo de NOT NULL:
+
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255) NOT NULL,
+    Age int
+);
+
+UNIQUE-ÚNICO
+Uma restrição que garante que todos os valores em uma coluna sejam exclusivos.
+
+Exemplo de UNIQUE:
+
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    UNIQUE (ID)
+);
+
+PRIMARY KEY-CHAVE PRIMÁRIA
+Uma restrição que identifica exclusivamente cada registro em uma tabela de 
+banco de dados.
+
+Exemplo de PRIMARY KEY:
+
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    PRIMARY KEY (ID)
+);
+
+FOREIGN KEY-CHAVE ESTRANGEIRA
+Uma restrição que é uma chave usada para vincular duas tabelas
+
+Exemplo de FOREIGN KEY:
+
+CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+);
